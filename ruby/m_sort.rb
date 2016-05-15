@@ -1,3 +1,6 @@
+require_relative './sorter'
+
+
 def partition(ar, left, right, pivot_index)
   pivot = ar[pivot_index] 
   ar[right], ar[pivot_index] = ar[pivot_index], ar[right] 
@@ -56,9 +59,7 @@ def median_sort (ar, left, right)
   end
 end
 
-ar = [2,4,1,5,3,7,6,9,8]
-left = 0
-right = 8
-p "before:#{ar}"
-median_sort(ar, left, right) 
-p "after:#{ar}"
+
+Sorter::run do |ar, left, right|
+  median_sort(ar, left, right)
+end
